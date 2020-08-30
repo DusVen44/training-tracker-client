@@ -1,0 +1,24 @@
+.new-workout-container {
+    border: 2px solid red;
+}
+
+.end-and-save-button {
+    background: green;
+}
+
+.add-exercise-button {
+    background: blue;
+    color: white;
+}
+
+.exercise-button {
+    width: 25%;
+    border: 2px solid rgb(0, 0, 0);
+    background: rgb(104, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-bottom: 3px;
+}
+
+.exercise-list {
+    list-style-type: none;
+}

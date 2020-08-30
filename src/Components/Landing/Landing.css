@@ -1,0 +1,40 @@
+.landing-container {
+    border: 2px solid red;
+}
+
+.intro-text {
+    border: 2px solid green;
+    width: 85%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.images-container {
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-around;
+}
+
+.notebook-image {
+    width: 35%;
+}
+
+.open-notebook {
+    width: 40%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.link {
+    border: 2px solid purple;
+    background-color: rosybrown;
+    text-align: center;
+    width: 25%;
+    padding: 10px;
+}
