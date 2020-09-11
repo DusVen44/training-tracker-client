@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Landing from '../Landing/Landing';
 import Signup from '../Signup/Signup';
 import Login from '../Login/Login';
@@ -17,7 +17,7 @@ export default function MainContainer() {
                 <PublicOnlyRoute path='/signup' component={Signup} />
                 <PublicOnlyRoute path='/login' component={Login} />
                 <PrivateRoute path='/notebook' component={Notebook} />
-                <PrivateRoute path='/new-workout' component={NewWorkout} />
+                <PrivateRoute path='/new-workout/:routine_id' component={NewWorkout} />
                 <PrivateRoute path='/history' component={History} />
             </Switch>
             

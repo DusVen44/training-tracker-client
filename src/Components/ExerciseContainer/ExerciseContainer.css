@@ -1,0 +1,66 @@
+.chosen-exercise-container {
+    border: 4px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.exercise-name-box {
+    border: 2px solid blue;
+    width: 50%;
+    position: relative;
+}
+
+.exercise-name {
+    border: 2px solid rgb(255, 0, 43);
+    width: 100%;
+    height: fit-content;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.set-and-button-box {
+    width: 50%;
+    display: flex;
+}
+
+.input-box {
+    border: 4px solid purple;
+    width: 70%;
+}
+
+.input-labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-labels>label {
+    border: 2px solid orange;
+    background: white;
+}
+
+.buttons-div {
+    width: 30%;
+    height: 30%;
+}
+
+.add-set-button {
+    background: lightgreen;
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+}
+
+.delete-set-button {
+    background: red;
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+}
+
+.delete-exercise-button {
+    background:black;
+    color: white;
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+}
