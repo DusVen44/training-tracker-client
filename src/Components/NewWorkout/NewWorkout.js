@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './NewWorkout.css';
-import Context from '../../Context';
 import config from '../../config';
 import Calendar from '../Calendar/Calendar';
-import ExerciseContainer from '../ExerciseContainer/ExerciseContainer';
-import { v1 as uuidv1 } from 'uuid';
+import '../ExerciseContainer/ExerciseContainer.css';
 import TokenService from '../../services/token-service';
 
 export default class NewWorkout extends Component {
@@ -19,7 +17,7 @@ export default class NewWorkout extends Component {
             showExerciseList: false,
             searchValue: "",
             chosenExercises: [],
-            notes: "",
+            input: []
         }
     }
 
@@ -116,6 +114,15 @@ export default class NewWorkout extends Component {
         })
     };
 
+//ADD INPUT
+    updateInput(index, e) {
+        const { input } = this.state;
+        input.splice(index, 1, e.target.value)
+        this.setState({
+            input: [...input]
+        })
+    }
+
 //DELETE EXERCISE - PASSED DOWN TO EACH EXERCISE CONTAINER COMPONENT
     deleteExercise = name => {
         this.setState({
@@ -125,31 +132,10 @@ export default class NewWorkout extends Component {
         })
     };
 
-//UDATE LBS
-    updateLbs = (lbs) => {
-        //Find the exercise - save as new object - remove old version from chosenExercises -
-        //Create the new array - delete old object with .filter() - Use destructure to add new object
-        // this.setState({
-            
-        // })
-    }
-
 
     render() {
-        console.log(this.state.chosenExercises)
-
-        const value = {
-            user_id: this.state.user_id,
-            exercises: this.state.exercises,
-            date: this.state.date,
-            showCalendar: this.state.showCalendar,
-            title: this.state.title,
-            showExerciseList: this.state.showExerciseList,
-            searchValue: this.state.searchValue,
-            chosenExercises: this.state.chosenExercises,
-            notes: this.state.notes,
-        }
-        const { exercises, date } = this.state;
+        const { exercises, date, chosenExercises, input } = this.state;
+        console.log('Input:', input);
         const searchValue = this.state.searchValue.toLowerCase();
     // CREATE FILTERED LIST FOR SEARCH BAR
         const filteredList = exercises.filter(i => {
@@ -174,7 +160,6 @@ export default class NewWorkout extends Component {
         }
     
         return (
-          <Context.Provider value={value}>
             <div className="new-workout-container">
 
             {/* DATE */}
@@ -220,18 +205,30 @@ export default class NewWorkout extends Component {
 
                 {/* LOOP TO CREATE EACH EXERCISE BOX */}
                     <div>
-                        {this.state.chosenExercises.map((exercise, index) => {
-                            return <ExerciseContainer 
-                                        key={uuidv1()} 
-                                        name={exercise.exercise_name}
-                                        type={exercise.exercise_type}
-                                        setCount={exercise.set_count}
-                                        lbs={exercise.lbs}
-                                        reps={exercise.reps}
-                                        addedLbs={exercise.added_lbs}
-                                        time={exercise.exercise_time}
-                                        updateLbs={this.updateLbs}
-                                        deleteExercise={this.deleteExercise.bind(this)}/>
+                        {chosenExercises.map((i, index) => {
+                            return (
+                                <div className="chosen-exercise-container" key={index}>
+
+                                {/* EXERCISE NAME  */}
+                                    <div className="exercise-name-box">
+                                        <div className="exercise-name">
+                                            {i.exercise_name}
+                                        </div>
+                                    </div>
+
+                                {/* INPUT BOX */}
+                                    <div className="input-box">
+                                        <label htmlFor={index}>Routine:</label>
+                                        <textarea
+                                            name="input"
+                                            id={index}
+                                            value={this.state.input[index]}
+                                            onChange={e => this.updateInput(index, e)}
+                                        />
+                                    </div>
+
+                            </div>
+                            )
                         })}
                     </div>
 
@@ -294,7 +291,6 @@ export default class NewWorkout extends Component {
 
 
             </div>
-          </Context.Provider>
         )
     }
 }
