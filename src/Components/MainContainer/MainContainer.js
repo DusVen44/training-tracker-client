@@ -18,7 +18,7 @@ export default function MainContainer() {
                 <PublicOnlyRoute path='/login' component={Login} />
                 <PrivateRoute path='/notebook' component={Notebook} />
                 <PrivateRoute path='/new-workout/:routine_id' component={NewWorkout} />
-                <PrivateRoute path='/history' component={History} />
+                <PrivateRoute path='/history/:user_id' component={History} />
             </Switch>
             
         </div>

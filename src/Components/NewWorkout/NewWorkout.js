@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './NewWorkout.css';
 import config from '../../config';
 import Calendar from '../Calendar/Calendar';
-import '../ExerciseContainer/ExerciseContainer.css';
 import TokenService from '../../services/token-service';
 
 export default class NewWorkout extends Component {
@@ -43,6 +42,10 @@ export default class NewWorkout extends Component {
 // SUBMIT and POST ROUTINE
     handleSubmit = e => {
         e.preventDefault();
+        const exercises = this.state.chosenExercises.map(i => {
+            return i.exercise_name;
+        })
+
         fetch(`${config.API_ENDPOINT}/api/history`, {
             method: 'POST',
             headers: {
@@ -53,7 +56,8 @@ export default class NewWorkout extends Component {
                 user_id: this.state.user_id,
                 routine_date: this.state.date.toDateString(),
                 routine_title: this.state.title,
-                routine_content: this.state.chosenExercises
+                routine_exercises: exercises,
+                routine_input: this.state.input
             })
         })
         .then(res =>
@@ -62,7 +66,7 @@ export default class NewWorkout extends Component {
               : res.json()
           )
         .then((user) => {
-            this.props.history.push('/history')
+            this.props.history.push('/history/:user_id')
         })
         .catch(error => {
             alert('Error', error)
@@ -135,13 +139,11 @@ export default class NewWorkout extends Component {
 
     render() {
         const { exercises, date, chosenExercises, input } = this.state;
-        console.log('Input:', input);
         const searchValue = this.state.searchValue.toLowerCase();
     // CREATE FILTERED LIST FOR SEARCH BAR
         const filteredList = exercises.filter(i => {
             return (
-                i.exercise_name.toLowerCase().indexOf(searchValue) !== -1 ||
-                i.exercise_type.toLowerCase().indexOf(searchValue) !== -1
+                i.exercise_name.toLowerCase().indexOf(searchValue) !== -1
             )
         });
 
@@ -222,8 +224,9 @@ export default class NewWorkout extends Component {
                                         <textarea
                                             name="input"
                                             id={index}
-                                            value={this.state.input[index]}
+                                            value={input[index]}
                                             onChange={e => this.updateInput(index, e)}
+                                            required
                                         />
                                     </div>
 
@@ -265,7 +268,6 @@ export default class NewWorkout extends Component {
                             id="search"
                             onChange={e => this.updateSearchValue(e.target.value)}
                             value={searchValue}
-                            placeholder="Name or Type of Exercise"
                         />
                     </h3>
                 </div>

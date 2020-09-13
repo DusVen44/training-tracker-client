@@ -66,6 +66,7 @@ export default class Signup extends Component {
                 
         TokenService.saveUsername(this.state.username.value);
         TokenService.saveEmail(this.state.email.value);
+        
         fetch(`${config.API_ENDPOINT}/api/users`, {
             method: 'POST',
             headers: {

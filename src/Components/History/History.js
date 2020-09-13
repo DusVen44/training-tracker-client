@@ -8,6 +8,7 @@ export default class History extends Component {
     constructor() {
         super()
         this.state = {
+            user_id: TokenService.getUserId(),
             routineList: []
         }
     }
@@ -39,7 +40,7 @@ export default class History extends Component {
 // DELETE ROUTINE
     handleDelete = (e, id) => {
         e.preventDefault();
-        const user_id = Number(TokenService.getUserId());
+        const user_id = this.state.user_id;
         fetch(`${config.API_ENDPOINT}/api/history/${user_id}`, {
             method: 'DELETE',
             headers: {
@@ -49,7 +50,11 @@ export default class History extends Component {
             body: JSON.stringify({ user_id, id }),
         })
         .then(() => {
-            this.props.history.push('/history')
+            this.props.history.push('/history/:user_id')
+        })
+        .catch(error => {
+            alert('Error', error)
+            console.log(error)
         });
     };
 
@@ -78,7 +83,8 @@ export default class History extends Component {
                     </Link>
                         <div>
                             <p>{i.route_date}</p>
-                            <p>{i.routine_content}</p>
+                            <p>{i.routine_exercises}</p>
+                            <p>{i.routine_input}</p>
                             {this.renderDeleteButton()}
                         </div>
                 </div>
