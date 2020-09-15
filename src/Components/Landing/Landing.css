@@ -47,14 +47,17 @@
 
 .list-image {
     width: 35%;
+    height: auto;
 }
 
 .routine-image {
     width: 35%;
+    height: auto;
 }
 
 .history-image {
     width: 35%;
+    height: auto;
     margin-top: 10px;
 }
 

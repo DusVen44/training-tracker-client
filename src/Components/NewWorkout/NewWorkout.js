@@ -126,16 +126,21 @@ export default class NewWorkout extends Component {
 
 //DELETE EXERCISE - PASSED DOWN TO EACH EXERCISE CONTAINER COMPONENT
     deleteExercise = (index) => {
+        const { chosenExercises, input } = this.state;
+        const newList = chosenExercises.slice(0, index).concat(chosenExercises.slice(index + 1, chosenExercises.length));
+        const newInput = input.slice(0, index).concat(input.slice(index + 1, input.length));
         this.setState({
-            chosenExercises: this.state.chosenExercises.filter(exercise => {
-                return exercise !== index
-            })
+            chosenExercises: newList,
+            input: newInput
         })
-    };
+    }
 
 
     render() {
         const { exercises, date, chosenExercises, input } = this.state;
+        console.log('Chosen Exercises', chosenExercises);
+        console.log('User Input', input)
+        // console.log(chosenExercises);
         const searchValue = this.state.searchValue.toLowerCase();
         const list = exercises.map(i => {
             return i.exercise_name
@@ -220,8 +225,8 @@ export default class NewWorkout extends Component {
                                         <button
                                             type="button"
                                             className="delete-exercise-button"
-                                            value={index}
-                                            onClick={() => this.deleteExercise(i)}>
+                                            value={i}
+                                            onClick={() => this.deleteExercise(index)}>
                                             Delete
                                         </button>
                                     </div>

@@ -23,7 +23,8 @@
     text-align: center;
     color: #F79E02;
     text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: 0;
     margin-bottom: 3px;
 }
@@ -35,12 +36,14 @@
 }
 
 .ex-name {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     color: rgb(0, 12, 83);
 }
 
 .ex-input {
+    font-family: 'Open Sans';
+    font-size: 16px;
     color: rgb(0, 12, 83);
 }
 
