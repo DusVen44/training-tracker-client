@@ -97,8 +97,8 @@ export default class Signup extends Component {
             <div className="signup-container">
 
                 <div className="instructions">
-                    <p>Fill in the form below to create your notebook and begin tracking 
-                       your training.
+                    <p>Fill in the form below and click the Sign Up button 
+                       to create your notebook training log.
                     </p>
                 </div>
 
@@ -106,8 +106,9 @@ export default class Signup extends Component {
                 {/* Sign Up Form */}
                 <form className="signup-form" onSubmit={this.handleSubmitSignup}>
 
-                    <label htmlFor="username">Username:</label>
+                    <label className="label" htmlFor="username">Username:</label>
                     <input
+                        className="input"
                         type="text"
                         name="username"
                         id="username"
@@ -115,8 +116,9 @@ export default class Signup extends Component {
                         required
                     />
 
-                    <label htmlFor="email">Email Address:</label>
+                    <label className="label" htmlFor="email">Email Address:</label>
                     <input
+                        className="input"
                         type="text"
                         name="email"
                         id="email"
@@ -124,8 +126,9 @@ export default class Signup extends Component {
                         required
                     />
 
-                    <label htmlFor="password">Password:</label>
+                    <label className="label" htmlFor="password">Password:</label>
                     <input
+                        className="input"
                         type="password"
                         name="password"
                         id="password"
@@ -133,21 +136,23 @@ export default class Signup extends Component {
                         required
                     />
 
-                    <Link to='/'>
+                    <div className="signup-form-buttons">
                         <button
-                            type="button"
-                            className="cancel-button"
+                            type="submit"
+                            className="signup-button"
                         >
-                            Cancel
+                            Sign Up
                         </button>
-                    </Link>
 
-                    <button
-                        type="submit"
-                        className="submit-button"
-                    >
-                        Sign Up
-                    </button>
+                        <Link to='/' className="cancel-link">
+                            <button
+                                type="button"
+                                className="cancel-button"
+                            >
+                                Cancel
+                            </button>
+                        </Link>
+                    </div>
                     
 
                 </form>

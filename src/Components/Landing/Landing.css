@@ -1,17 +1,37 @@
 .landing-container {
-    border: 2px solid red;
+    padding-top: 30px;
 }
 
 .intro-text {
-    border: 2px solid green;
     width: 85%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.intro-big {
+    font-size: 23px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.intro-little {
+    font-size: 16px;
+    margin-top: 5px;
 }
 
 .images-container {
-    border: 2px solid blue;
+    background-color: rgb(207, 207, 207);
+    border-radius: 15%;
+    box-shadow: 0 0 20px 20px rgb(207, 207, 207);
+    width: 85%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: space-around;
 }
@@ -32,9 +52,10 @@
 }
 
 .link {
-    border: 2px solid purple;
-    background-color: rosybrown;
+    border: 2px solid rgb(0, 12, 83);
+    background-color: #6CDAEE;
     text-align: center;
+    font-size: 20px;
     width: 25%;
     padding: 10px;
 }

@@ -1,3 +1,64 @@
 .history-container {
-    border: 2px solid red;
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.history-title {
+    text-align: center;
+    font-size: 50px;
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+}
+
+.routine-box {
+    background-color: rgb(207, 207, 207);
+    box-shadow: 0 0 5px 5px rgb(207, 207, 207);
+    padding: 2px;
+    margin: 30px 10px;
+}
+
+.date-and-title {
+    text-align: center;
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.routine-exercises {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ex-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(0, 12, 83);
+}
+
+.ex-input {
+    color: rgb(0, 12, 83);
+}
+
+.exercise-box {
+    border: 2px solid rgb(0, 12, 83);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px 2px;
+    padding: 5px;
+}
+
+.delete-routine-button {
+    background: rgb(175, 0, 0);
+    color: whitesmoke;
+    width: 40%;
+    max-width: 150px;
+    height: 3vh;
+    padding: 0;
+    font-size: 16px;
 }

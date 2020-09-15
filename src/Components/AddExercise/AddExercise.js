@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import config from '../../config';
+import './AddExercise.css';
 
 export default class AddExercise extends Component {
     constructor(props) {
@@ -70,9 +71,13 @@ export default class AddExercise extends Component {
 
     render() {
         const { exercises, exercise_name } = this.state;
-        const filteredList = exercises.filter(i => {
+        const list = exercises.map(i => {
+            return i.exercise_name
+        })
+        const sortedList = list.sort()
+        const filteredList = sortedList.filter(i => {
             return (
-                i.exercise_name.indexOf(exercise_name) !== -1
+                i.indexOf(exercise_name) !== -1
             )
         });
         return (
@@ -80,6 +85,7 @@ export default class AddExercise extends Component {
                 <form className="add-exercise-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Exercise Name:</label>
                     <input
+                        className="new-exercise-input"
                         type="text"
                         id="name"
                         value={exercise_name}
@@ -95,9 +101,9 @@ export default class AddExercise extends Component {
                 </form>
 
                 <div className="exercise-list">
-                    {filteredList.map(i => {
-                        return <div key={i.id}>
-                                {i.exercise_name}
+                    {filteredList.map((i, index) => {
+                        return <div key={index} className="each-exercise">
+                                {i}
                                </div>
                     })}
                 </div>

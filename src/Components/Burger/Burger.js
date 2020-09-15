@@ -85,7 +85,7 @@ export default class Burger extends React.Component {
                 isOpen={this.state.isMyMenuOpen}
                 onStateChange={this.isMenuOpen}
             > 
-                
+
                 <Link to="/" onClick={this.closeMenu}>Home</Link>
 
                 {TokenService.hasAuthToken()

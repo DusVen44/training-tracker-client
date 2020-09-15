@@ -1,28 +1,65 @@
+.signup-container {
+    padding-top: 30px;
+}
+
 .instructions {
-    border: 2px solid yellow;
+    color: white;
+    font-size: 18px;
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
     text-align: center;
 }
 
 .signup-form {
-    border: 2px solid purple;
+    background-color: rgb(207, 207, 207);
+    border-radius: 15%;
+    box-shadow: 0 0 20px 20px rgb(207, 207, 207);
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     width: 85%;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    padding: 20px;
 }
 
-input {
+.label {
+    font-size: 16px;
+}
+
+.input {
     margin-bottom: 20px;
+    font-size: 18px;
 }
 
-button {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
+.signup-form-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.signup-button {
+    width: 35%;
+    height: 40px;
+    font-size: 20px;
+    border: 2px solid rgb(0, 12, 83);
+    background-color: #6CDAEE;
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+}
+
+.cancel-link {
+    width: 35%;
+    height: 40px;
+    border: 2px solid rgb(0, 12, 83);
+}
+
+.cancel-button {
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(173, 0, 0);
+    color: white;
 }

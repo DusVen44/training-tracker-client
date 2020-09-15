@@ -9,10 +9,10 @@ export default function Landing() {
         <div className="landing-container">
 
             <div className="intro-text">
-                <h2>Welcome to Training Tracker</h2>
-                <p>Sign up now to log your workouts and track your progress. Whether you're
-                   setting deadlift records or improving your marathon time, Training Tracker
-                   will help you crush your goals like never before!</p>
+                <h2 className="intro-big">Welcome to Training Tracker</h2>
+                <p className="intro-little">Sign up now to log your workouts, 
+                                            track your progress, and crush your
+                                            goals!</p>
             </div>
 
             <div className="images-container">

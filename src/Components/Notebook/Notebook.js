@@ -15,12 +15,14 @@ export default class Notebook extends Component {
         const { user_id, username } = this.state;
         return (
             <div className="notebook-container">
+                               
+                <h2 className="username-text">{username}'s Training Log</h2>
 
-                <h2>{username}'s Notebook</h2>
+                <div className="notebook-links">
+                    <a href="/new-workout/new"><h3 className="h3-link">Create New Routine</h3></a>
 
-                <a href="/new-workout/new"><h3>Create New Workout</h3></a>
-
-                <a href={`/history/${user_id}`}><h3>View Past Workouts</h3></a>
+                    <a href={`/history/${user_id}`}><h3 className="h3-link">View Past Workouts</h3></a>
+                </div>
 
             </div>
         )

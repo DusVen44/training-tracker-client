@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './History.css';
 import config from '../../config';
 import TokenService from '../../services/token-service';
@@ -9,7 +8,9 @@ export default class History extends Component {
         super()
         this.state = {
             user_id: TokenService.getUserId(),
-            routineList: []
+            routineList: [],
+            routine_exercises: [],
+            routine_input: []
         }
     }
 
@@ -28,7 +29,9 @@ export default class History extends Component {
         )
         .then(res => {
             this.setState({
-                routineList: res
+                routineList: res,
+                routine_exercises: res.map(i => {return i.routine_exercises}),
+                routine_input: res.map(j => {return j.routine_input})
             })
         })
         .catch(error => {
@@ -49,8 +52,12 @@ export default class History extends Component {
             },
             body: JSON.stringify({ user_id, id }),
         })
+        .then(res => {
+            if (!res.ok)
+                return res.json().then(e => Promise.reject(e))
+        })
         .then(() => {
-            this.props.history.push('/history/:user_id')
+            window.location.reload()
         })
         .catch(error => {
             alert('Error', error)
@@ -58,41 +65,47 @@ export default class History extends Component {
         });
     };
 
-//RENDER DELETE BUTTON
-    renderDeleteButton = () => {
-        return (
-            <button
-                className="delete-routine-button"
-                onClick={this.handleDelete}
-            >
-                Delete Routine
-            </button>
-        )
-    }
-
     render() {
-        console.log(this.state.routineList)
-        const list = this.state.routineList.map(i => {
+        const { routineList, routine_exercises, routine_input } = this.state;
+        const splitList = routine_exercises.map(i=>{return i.split(",")});
+        const splitInput = routine_input.map(i=>{return i.split(",")})
+        const list = routineList.map((i, index) => {
+            const date = i.routine_date.slice(0, 10);
+            const mappedInput = splitInput[index].map((input, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <div>{input}</div>
+                                        </div>
+                                    )
+            })
+            const mappedExercises = splitList[index].map((name, index) => {
+                                        return (
+                                            <div className="exercise-box" key={index}>
+                                                <div className="ex-name">{index + 1} - {name}</div>
+                                                <div className="ex-input">{mappedInput[index]}</div>
+                                            </div>
+                                        )
+            })
             return (
-                <div key={i.id}>
-                    <Link 
-                        to={`/new-workout/${i.id}`}
-                        key={i.id}
-                    >
-                        <h3>{i.routine_title}</h3>
-                    </Link>
+                <div key={i.id} className="routine-box">
+                    <h3 className="date-and-title">{date} - {i.routine_title}</h3>
                         <div>
-                            <p>{i.route_date}</p>
-                            <p>{i.routine_exercises}</p>
-                            <p>{i.routine_input}</p>
-                            {this.renderDeleteButton()}
+                            <div className="routine-exercises">{mappedExercises}</div>
+                            <button
+                                className="delete-routine-button"
+                                onClick={e => this.handleDelete(e, i.id)}
+                            >
+                                Delete Routine
+                            </button>
                         </div>
                 </div>
             )
         });
         return (
             <div className="history-container">
-                {list}
+                <h1 className="history-title">HISTORY</h1>
+
+                <div className="list">{list}</div>
             </div>
         )
     }

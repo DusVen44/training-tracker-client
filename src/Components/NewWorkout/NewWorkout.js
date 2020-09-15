@@ -42,9 +42,6 @@ export default class NewWorkout extends Component {
 // SUBMIT and POST ROUTINE
     handleSubmit = e => {
         e.preventDefault();
-        const exercises = this.state.chosenExercises.map(i => {
-            return i.exercise_name;
-        })
 
         fetch(`${config.API_ENDPOINT}/api/history`, {
             method: 'POST',
@@ -56,7 +53,7 @@ export default class NewWorkout extends Component {
                 user_id: this.state.user_id,
                 routine_date: this.state.date.toDateString(),
                 routine_title: this.state.title,
-                routine_exercises: exercises,
+                routine_exercises: this.state.chosenExercises,
                 routine_input: this.state.input
             })
         })
@@ -128,10 +125,10 @@ export default class NewWorkout extends Component {
     }
 
 //DELETE EXERCISE - PASSED DOWN TO EACH EXERCISE CONTAINER COMPONENT
-    deleteExercise = name => {
+    deleteExercise = (index) => {
         this.setState({
             chosenExercises: this.state.chosenExercises.filter(exercise => {
-                return exercise.exercise_name !== name
+                return exercise !== index
             })
         })
     };
@@ -140,10 +137,14 @@ export default class NewWorkout extends Component {
     render() {
         const { exercises, date, chosenExercises, input } = this.state;
         const searchValue = this.state.searchValue.toLowerCase();
+        const list = exercises.map(i => {
+            return i.exercise_name
+        });
+        const sortedList = list.sort();
     // CREATE FILTERED LIST FOR SEARCH BAR
-        const filteredList = exercises.filter(i => {
+        const filteredList = sortedList.filter(i => {
             return (
-                i.exercise_name.toLowerCase().indexOf(searchValue) !== -1
+                i.toLowerCase().indexOf(searchValue) !== -1
             )
         });
 
@@ -214,13 +215,20 @@ export default class NewWorkout extends Component {
                                 {/* EXERCISE NAME  */}
                                     <div className="exercise-name-box">
                                         <div className="exercise-name">
-                                            {i.exercise_name}
+                                            {i}
                                         </div>
+                                        <button
+                                            type="button"
+                                            className="delete-exercise-button"
+                                            value={index}
+                                            onClick={() => this.deleteExercise(i)}>
+                                            Delete
+                                        </button>
                                     </div>
 
                                 {/* INPUT BOX */}
                                     <div className="input-box">
-                                        <label htmlFor={index}>Routine:</label>
+                                        <label htmlFor={index}></label>
                                         <textarea
                                             name="input"
                                             id={index}
@@ -241,7 +249,7 @@ export default class NewWorkout extends Component {
                             type="submit"
                             className="end-and-save-button"
                         >
-                            End and Save
+                            End and Save Routine
                         </button>
                     </div>
 
@@ -262,7 +270,7 @@ export default class NewWorkout extends Component {
             {/* SEARCH INPUT */}
                 {this.state.showExerciseList &&
                 <div className="search-bar-container">
-                    <h3>Search:
+                    <h3 className="search">Search:
                         <input
                             type="text"
                             id="search"
@@ -281,10 +289,10 @@ export default class NewWorkout extends Component {
                                         <button 
                                             className="exercise-button"
                                             key={index}
-                                            value={i.exercise_name}
+                                            value={i}
                                             onClick={() => this.addExercise(i)}
                                         >
-                                            {i.exercise_name}                                
+                                            {i}                                
                                         </button>
                                     )
                             })}

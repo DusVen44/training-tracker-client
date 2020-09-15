@@ -1,4 +1,27 @@
 .notebook-container {
-    border: 2px solid red;
     text-align: center;
+    height: 70vh;
+}
+
+.username-text {
+    color: whitesmoke;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+    margin-bottom: 50px;
+}
+
+.notebook-links {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(207, 207, 207);
+    border-radius: 15%;
+    box-shadow: 0 0 20px 20px rgb(207, 207, 207);
+    width: 60%;
+    max-width: 500px;
+    padding: 10px 0 10px 0;
+}
+
+.h3-link {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 20px;
 }

@@ -80,14 +80,15 @@ export default class Login extends Component {
             <div className="login-container">
 
                 <div className="instructions">
-                    Fill in the form below to log into your account.
+                    Fill in the form below to log in to your account.
                 </div>
 
             {/* Login Form */}
                 <form className="login-form" onSubmit={this.handleSubmitLogin}>
 
-                    <label htmlFor="email">Username:</label>
+                    <label className="label" htmlFor="email">Username:</label>
                     <input
+                        className="input"
                         type="text"
                         name="username"
                         id="username"
@@ -95,8 +96,9 @@ export default class Login extends Component {
                         required
                     />
 
-                    <label htmlFor="password">Password:</label>
+                    <label className="label" htmlFor="password">Password:</label>
                     <input
+                        className="input"
                         type="password"
                         name="password"
                         id="password"
@@ -106,7 +108,7 @@ export default class Login extends Component {
 
                     <button
                         type="submit"
-                        className="submit-button"
+                        className="login-submit-button"
                     >
                         Log In
                     </button>
