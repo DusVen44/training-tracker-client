@@ -1,5 +1,5 @@
 .nav {
-    width: 100%;
+    width: 80%;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -9,10 +9,12 @@
 .title {
     margin-left: 10%;
     font-size: 4.7vh;
+    font-weight: bold
 }
 
 a {
     text-decoration: none;
+    font-weight: bold;
     color: #F79E02;
     text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
 }
