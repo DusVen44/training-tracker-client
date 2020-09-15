@@ -34,14 +34,28 @@
     margin-bottom: 35px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.notebook-image {
+.images-instructions {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 12, 83);
+    width: 80%;
+    text-align: center;
+}
+
+.list-image {
     width: 35%;
 }
 
-.open-notebook {
-    width: 40%;
+.routine-image {
+    width: 35%;
+}
+
+.history-image {
+    width: 35%;
+    margin-top: 10px;
 }
 
 .buttons {

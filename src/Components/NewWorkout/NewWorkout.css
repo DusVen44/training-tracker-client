@@ -112,10 +112,11 @@ textarea {
 .end-and-save-button {
     background: green;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     padding: 4px;
     width: 50%;
     max-width: 250px;
+    margin-right: 10%;
 }
 
 .add-exercise-button-container {

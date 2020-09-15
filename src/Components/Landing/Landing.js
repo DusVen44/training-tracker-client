@@ -1,8 +1,10 @@
 import React from 'react';
 import './Landing.css';
 import { Link } from 'react-router-dom';
-import notebook from '../../images/notebook.png';
-import open_notebook from '../../images/open-notebook.png';
+import sampleRoutine from '../../images/sample-routine.png';
+import exerciseList from '../../images/exercise-list.png';
+import historySample from '../../images/history-sample.png';
+
 
 export default function Landing() {
     return (
@@ -16,8 +18,12 @@ export default function Landing() {
             </div>
 
             <div className="images-container">
-                <img src={notebook} alt="notebook" className="notebook-image" />
-                <img src={open_notebook} alt="open notebook" className="open-notebook" />
+                <p className="images-instructions">Choose from a list of exercises to populate your routine. Save your routine
+                   and view your past workouts anytime you want.
+                </p>
+                <img src={exerciseList} alt="notebook" className="list-image" />
+                <img src={sampleRoutine} alt="open notebook" className="routine-image" />
+                <img src={historySample} alt="open notebook" className="history-image" />
             </div>
 
             <div className="buttons">
