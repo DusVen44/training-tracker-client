@@ -1,13 +1,14 @@
-.add-exercise-container {
-    border: 2px solid black;
-}
-
 .add-exercise-form {
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.input-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: whitesmoke;
 }
 
 .new-exercise-input {
@@ -16,12 +17,17 @@
 
 .exercise-list {
     list-style-type: none;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .each-exercise {
+    width: 20%;
     border: 1px solid purple;
     background-color: lightblue;
     padding: 3px;
     margin: 2px;
+    font-size: 18px;
+    font-weight: 800;
 }

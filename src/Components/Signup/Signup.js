@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
-import Context from '../../Context';
+import ValidationError from '../ValidationError/ValidationError';
 import config from '../../config';
 import TokenService from '../../services/token-service';
 
@@ -24,8 +24,6 @@ export default class Signup extends Component {
         }
     }
 
-    static contextType = Context;
-
     updateUsername(username) {
         this.setState({
             username: {
@@ -35,7 +33,12 @@ export default class Signup extends Component {
         })
     }
 
-    //Add validateUsername()
+    validateUsername() {
+        const username = this.state.username.value;
+        if (username.length === 0) {
+            return 'Username is required!'
+        }
+    }
 
     updateEmail(email) {
         this.setState({
@@ -46,7 +49,12 @@ export default class Signup extends Component {
         })
     }
 
-    //Add validateEmail()
+    validateEmail() {
+        const email = this.state.email.value;
+        if (email.length === 0) {
+            return 'Email is required for "Forgot Password Service"!'
+        }
+    }
 
     updatePassword(password) {
         this.setState({
@@ -57,7 +65,14 @@ export default class Signup extends Component {
         })
     }
 
-    //Add validatePassword()
+    validatePassword() {
+        const password = this.state.password.value;
+        if (password.length === 0) {
+            return 'Password is Required!'
+        }
+    }
+
+    
 
 
     //Function to handle Signing Up/Registering
@@ -93,6 +108,7 @@ export default class Signup extends Component {
     }
 
     render() {
+        const { username, email, password } = this.state;
         return (
             <div className="signup-container">
 
@@ -115,6 +131,7 @@ export default class Signup extends Component {
                         onChange={e => this.updateUsername(e.target.value)}
                         required
                     />
+                    {username.touched && <ValidationError message={this.validateUsername()} />}
 
                     <label className="label" htmlFor="email">Email Address:</label>
                     <input
@@ -125,6 +142,7 @@ export default class Signup extends Component {
                         onChange={e => this.updateEmail(e.target.value)}
                         required
                     />
+                    {email.touched && <ValidationError message={this.validateEmail()} />}
 
                     <label className="label" htmlFor="password">Password:</label>
                     <input
@@ -135,6 +153,7 @@ export default class Signup extends Component {
                         onChange={e => this.updatePassword(e.target.value)}
                         required
                     />
+                    {password.touched && <ValidationError message={this.validatePassword()} />}
 
                     <div className="signup-form-buttons">
                         <button

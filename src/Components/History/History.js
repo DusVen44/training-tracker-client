@@ -70,7 +70,7 @@ export default class History extends Component {
         const splitList = routine_exercises.map(i=>{return i.split(",")});
         const splitInput = routine_input.map(i=>{return i.split(",")})
         const list = routineList.map((i, index) => {
-            const date = i.routine_date.slice(0, 10);
+            const date = new Date(i.routine_date).toDateString();
             const mappedInput = splitInput[index].map((input, index) => {
                                     return (
                                         <div key={index}>
@@ -88,7 +88,9 @@ export default class History extends Component {
             })
             return (
                 <div key={i.id} className="routine-box">
-                    <h3 className="date-and-title">{date} - {i.routine_title}</h3>
+                    <h3 className="date-and-title">
+                        <div>{date}</div>
+                        {i.routine_title}</h3>
                         <div>
                             <div className="routine-exercises">{mappedExercises}</div>
                             <button
@@ -105,7 +107,9 @@ export default class History extends Component {
             <div className="history-container">
                 <h1 className="history-title">HISTORY</h1>
 
-                <div className="list">{list}</div>
+                <div className="list">
+                    {list}
+                </div>
             </div>
         )
     }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Header from './Header';
 
-describe('<App />', () => {
-  it('RENDERS App.js WITHOUT CRASHING', () => {
+describe('<Header />', () => {
+  it('RENDERS Header.js WITHOUT CRASHING', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, div);
+    ReactDOM.render(<BrowserRouter><Header /></BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   })
 })

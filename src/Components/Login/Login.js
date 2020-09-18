@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Login.css';
-import Context from '../../Context';
 import config from '../../config';
 import TokenService from '../../services/token-service';
 
@@ -19,8 +18,6 @@ export default class Login extends Component {
         }
     }
 
-    static contextType = Context;
-
     updateUsername(username) {
         this.setState({
             username: {
@@ -30,8 +27,6 @@ export default class Login extends Component {
         })
     }
 
-    //Add validateUsername() function
-
     updatePassword(password) {
         this.setState({
             password: {
@@ -40,9 +35,6 @@ export default class Login extends Component {
             }
         })
     }
-
-    //Add validatePassword() function
-
 
     //Function to handle Logging In
     handleSubmitLogin = e => {

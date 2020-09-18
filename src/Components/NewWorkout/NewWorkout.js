@@ -138,9 +138,6 @@ export default class NewWorkout extends Component {
 
     render() {
         const { exercises, date, chosenExercises, input } = this.state;
-        console.log('Chosen Exercises', chosenExercises);
-        console.log('User Input', input)
-        // console.log(chosenExercises);
         const searchValue = this.state.searchValue.toLowerCase();
         const list = exercises.map(i => {
             return i.exercise_name

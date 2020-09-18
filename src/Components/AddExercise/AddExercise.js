@@ -83,7 +83,7 @@ export default class AddExercise extends Component {
         return (
             <div className="add-exercise-container">
                 <form className="add-exercise-form" onSubmit={this.handleSubmit}>
-                    <label htmlFor="name">Exercise Name:</label>
+                    <label htmlFor="name" className="input-name">Exercise Name:</label>
                     <input
                         className="new-exercise-input"
                         type="text"

@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Signup from './Signup';
 
-describe('<App />', () => {
-  it('RENDERS App.js WITHOUT CRASHING', () => {
+describe('<Signup />', () => {
+  it('RENDERS Signup.js WITHOUT CRASHING', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, div);
+    ReactDOM.render(<BrowserRouter><Signup /></BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   })
 })

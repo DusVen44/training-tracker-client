@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Calendar from './Calendar';
 
-describe('<App />', () => {
-  it('RENDERS App.js WITHOUT CRASHING', () => {
+describe('<Calendar />', () => {
+  it('RENDERS Calendar.js WITHOUT CRASHING', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, div);
+    ReactDOM.render(<BrowserRouter><Calendar /></BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   })
 })
