@@ -21,6 +21,13 @@ export default function Landing() {
                 <p className="images-instructions">Choose from a list of exercises to populate your routine. Save your routine
                    and view your past workouts anytime you want.
                 </p>
+                <p className="test-creds">
+                    Test application with these credentials...
+                    <br></br>
+                    Username: TestTest1
+                    <br></br>
+                    Password: TestTest2020
+                </p>
                 <img src={exerciseList} alt="notebook" className="list-image" />
                 <img src={sampleRoutine} alt="open notebook" className="routine-image" />
                 <img src={historySample} alt="open notebook" className="history-image" />

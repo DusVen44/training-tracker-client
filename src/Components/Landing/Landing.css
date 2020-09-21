@@ -37,6 +37,12 @@
     flex-wrap: wrap;
 }
 
+.test-creds {
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .images-instructions {
     font-size: 20px;
     font-weight: bold;
@@ -47,17 +53,17 @@
 
 .list-image {
     width: 35%;
-    height: auto;
+    height: 35%;
 }
 
 .routine-image {
     width: 35%;
-    height: auto;
+    height: 35%;
 }
 
 .history-image {
     width: 35%;
-    height: auto;
+    height: 35%;
     margin-top: 10px;
 }
 
