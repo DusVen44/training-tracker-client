@@ -1,0 +1,7 @@
+.label-program-name {
+    margin: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+}

@@ -21,8 +21,8 @@ export default class Signup extends Component {
                 value: "",
                 touched: false
             }
-        }
-    }
+        };
+    };
 
     updateUsername(username) {
         this.setState({
@@ -30,15 +30,15 @@ export default class Signup extends Component {
                 value: username,
                 touched: true
             }
-        })
-    }
+        });
+    };
 
     validateUsername() {
         const username = this.state.username.value;
         if (username.length === 0) {
             return 'Username is required!'
-        }
-    }
+        };
+    };
 
     updateEmail(email) {
         this.setState({
@@ -46,15 +46,15 @@ export default class Signup extends Component {
                 value: email,
                 touched: true
             }
-        })
-    }
+        });
+    };
 
     validateEmail() {
         const email = this.state.email.value;
         if (email.length === 0) {
             return 'Email is required for "Forgot Password Service"!'
-        }
-    }
+        };
+    };
 
     updatePassword(password) {
         this.setState({
@@ -62,18 +62,15 @@ export default class Signup extends Component {
                 value: password,
                 touched: true
             }
-        })
-    }
+        });
+    };
 
     validatePassword() {
         const password = this.state.password.value;
         if (password.length === 0) {
             return 'Password is Required!'
-        }
-    }
-
-    
-
+        };
+    };  
 
     //Function to handle Signing Up/Registering
     handleSubmitSignup = e => {
@@ -105,7 +102,7 @@ export default class Signup extends Component {
             alert('Error', error)
             console.log(error)
         });
-    }
+    };
 
     render() {
         const { username, email, password } = this.state;

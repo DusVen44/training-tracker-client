@@ -10,9 +10,9 @@ export default class History extends Component {
             user_id: TokenService.getUserId(),
             routineList: [],
             routine_exercises: [],
-            routine_input: []
-        }
-    }
+            routine_input: [],
+        };
+    };
 
 // LOAD THE HISTORY LIST
     componentDidMount() {
@@ -37,12 +37,13 @@ export default class History extends Component {
         .catch(error => {
             alert("Could not load history", error);
             console.log(error)
-        })
+        });
     };
 
 // DELETE ROUTINE
     handleDelete = (e, id) => {
         e.preventDefault();
+        
         const user_id = this.state.user_id;
         fetch(`${config.API_ENDPOINT}/api/history/${user_id}`, {
             method: 'DELETE',
@@ -77,7 +78,7 @@ export default class History extends Component {
                                             <div>{input}</div>
                                         </div>
                                     )
-            })
+            });
             const mappedExercises = splitList[index].map((name, index) => {
                                         return (
                                             <div className="exercise-box" key={index}>
@@ -85,14 +86,18 @@ export default class History extends Component {
                                                 <div className="ex-input">{mappedInput[index]}</div>
                                             </div>
                                         )
-            })
+            });
+
             return (
                 <div key={i.id} className="routine-box">
                     <h3 className="date-and-title">
                         <div>{date}</div>
                         {i.routine_title}</h3>
                         <div>
-                            <div className="routine-exercises">{mappedExercises}</div>
+                            <div className="routine-exercises">
+                                {mappedExercises}
+                            </div>
+
                             <button
                                 className="delete-routine-button"
                                 onClick={e => this.handleDelete(e, i.id)}

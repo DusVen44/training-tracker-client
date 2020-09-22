@@ -15,26 +15,27 @@ export default class Burger extends React.Component {
 
     componentDidMount() {
         document.addEventListener('click', this.handleClickOutside);
-    }
+    };
     
     componentWillUnmount() {
         document.addEventListener('click', this.handleClickOutside);
-    }
+    };
 
     handleClickOutside = e => {
         if (this.state.isMenuOpen === false) {
           return;
-        }
+        };
+
         const node = ReactDOM.findDOMNode(this);
         let target = e.target;
     
         while (target && target.parentNode) {
           if (target === node) {
             return;
-          }
+        };
     
-          target = target.parentNode;
-        }
+        target = target.parentNode;
+        };
     
         this.setState({ isMenuOpen: false });
     };
@@ -59,7 +60,7 @@ export default class Burger extends React.Component {
             <Link to='/login' className="bm-item" onClick={this.closeMenu}>
                 Log In        
             </Link>   
-        )
+        );
     };
 
     renderLogoutLink = () => {
@@ -67,7 +68,7 @@ export default class Burger extends React.Component {
             <Link className="bm-item" onClick={this.handleLogout} to='/'>
                 Log Out        
             </Link>   
-        )
+        );
     };
 
     renderSignupLink = () => {
@@ -75,7 +76,7 @@ export default class Burger extends React.Component {
             <Link to='/signup' className="bm-item" onClick={this.closeMenu}>
                 Sign Up       
             </Link>   
-        )
+        );
     };
 
     render() {

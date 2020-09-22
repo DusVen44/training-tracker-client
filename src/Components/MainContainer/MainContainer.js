@@ -10,6 +10,8 @@ import History from '../History/History';
 import AddExercise from '../AddExercise/AddExercise';
 import PrivateRoute from '../../Utils/PrivateRoute';
 import PublicOnlyRoute from '../../Utils/PublicOnlyRoute';
+// import ProgramList from '../../Components/ProgramList/ProgramList';
+// import ProgramRoutines from '../ProgramRoutines/ProgramRoutines';
 
 export default function MainContainer() {
     return (
@@ -19,9 +21,11 @@ export default function MainContainer() {
                 <PublicOnlyRoute path='/signup' component={Signup} />
                 <PublicOnlyRoute path='/login' component={Login} />
                 <PrivateRoute path='/notebook' component={Notebook} />
-                <PrivateRoute path='/new-workout/:routine_id' component={NewWorkout} />
-                <PrivateRoute path='/history/:user_id' component={History} />
+                <PrivateRoute path='/new-workout/new' component={NewWorkout} />
+                <PrivateRoute path='/:user_id/history' component={History} />
                 <PrivateRoute path='/add-exercise' component={AddExercise} />
+                {/* <PrivateRoute path='/:user_id/program-list' component={ProgramList} />
+                <PrivateRoute path='/:user_id/:program-name' component={ProgramRoutines} /> */}
             </Switch>
             
         </div>

@@ -10,10 +10,10 @@ export default class AddExercise extends Component {
             user_id: TokenService.getUserId(),
             exercise_name: '',
             exercises: []
-        }
-    }
+        };
+    };
 
-    // LOAD THE LIST OF EXERCISES FROM SERVER
+// LOAD THE LIST OF EXERCISES FROM SERVER
     componentDidMount() {
         fetch(`${config.API_ENDPOINT}/api/exercises`)
         .then(res =>
@@ -24,14 +24,15 @@ export default class AddExercise extends Component {
         .then((res) => {
             this.setState({
                 exercises: res
-            })
+            });
         })
         .catch(error => {
             alert("Could not load exercises", error);
             console.log(error)
-        })
-    }
+        });
+    };
 
+// SUBMIT NEW EXERCISE
     handleSubmit = e => {
         e.preventDefault();
         const exercise_name = this.state.exercise_name;
@@ -61,24 +62,25 @@ export default class AddExercise extends Component {
             alert('Error', error)
             console.log(error)
         });
-    }
+    };
 
+//UPDATE STATE WITH USER INPUT
     updateName(name) {
         this.setState({
             exercise_name: name
-        })
-    }
+        });
+    };
 
     render() {
         const { exercises, exercise_name } = this.state;
         const list = exercises.map(i => {
             return i.exercise_name
-        })
+        });
         const sortedList = list.sort()
         const filteredList = sortedList.filter(i => {
             return (
                 i.indexOf(exercise_name) !== -1
-            )
+            );
         });
         return (
             <div className="add-exercise-container">
@@ -108,6 +110,6 @@ export default class AddExercise extends Component {
                     })}
                 </div>
             </div>
-        )
-    }
-}
+        );
+    };
+};

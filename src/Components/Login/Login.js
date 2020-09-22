@@ -15,8 +15,8 @@ export default class Login extends Component {
                 value: "",
                 touched: false
             }
-        }
-    }
+        };
+    };
 
     updateUsername(username) {
         this.setState({
@@ -24,8 +24,8 @@ export default class Login extends Component {
                 value: username,
                 touched: true
             }
-        })
-    }
+        });
+    };
 
     updatePassword(password) {
         this.setState({
@@ -33,13 +33,13 @@ export default class Login extends Component {
                 value: password,
                 touched: true
             }
-        })
-    }
+        });
+    };
 
     //Function to handle Logging In
     handleSubmitLogin = e => {
         e.preventDefault();
-        
+
         TokenService.saveUsername(this.state.username.value);
         fetch(`${config.API_ENDPOINT}/api/auth/login`, {
             method: 'POST',
@@ -59,13 +59,13 @@ export default class Login extends Component {
         .then((res) => {
             TokenService.saveAuthToken(res.authToken);
             TokenService.saveUserId(res.user_id);
-            this.props.history.push('/notebook')
+            this.props.history.push(`/notebook`)
         })
         .catch(error => {
             alert('Error', error)
             console.log(error)
         });
-    }
+    };
 
     render() {
         return (

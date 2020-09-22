@@ -18,7 +18,7 @@ export default class NewWorkout extends Component {
             chosenExercises: [],
             input: []
         }
-    }
+    };
 
 // LOAD THE LIST OF EXERCISES FROM SERVER
     componentDidMount() {
@@ -37,7 +37,7 @@ export default class NewWorkout extends Component {
             alert("Could not load exercises", error);
             console.log(error)
         })
-    }
+    };
 
 // SUBMIT and POST ROUTINE
     handleSubmit = e => {
@@ -63,26 +63,26 @@ export default class NewWorkout extends Component {
               : res.json()
           )
         .then((user) => {
-            this.props.history.push('/history/:user_id')
+            this.props.history.push('/:user_id/history/')
         })
         .catch(error => {
             alert('Error', error)
             console.log(error)
         });
-    }
+    };
 
 //TOGGLE VIEW OF CALENDAR FOR DATE CHANGE
     toggleCalendar = () => {
         this.setState({
             showCalendar: !this.state.showCalendar
-        })
+        });
     };
 
 //CHANGE DATE
     onDateChange = date => {
         this.setState({ 
             date: date 
-        })
+        });
         this.toggleCalendar()
     };
 
@@ -90,14 +90,14 @@ export default class NewWorkout extends Component {
     updateTitle(title) {
         this.setState({
             title: title
-        })
+        });
     };
 
 //UDPATE VALUE OF EXERCISE SEARCH
     updateSearchValue(searchTerm) {
         this.setState({
             searchValue: searchTerm
-        })
+        });
     };
 
 //TOGGLE VIEW OF EXERCISE LIST
@@ -105,24 +105,34 @@ export default class NewWorkout extends Component {
         this.setState({
             showExerciseList: !this.state.showExerciseList,
             searchValue: ""
-        })
+        });
     };
 
 //ADD EXERCISE TO WORKOUT ROUTINE
     addExercise = (exercise) => {
         this.setState({
             chosenExercises: [...this.state.chosenExercises, exercise]
-        })
+        });
     };
 
 //ADD INPUT
     updateInput(index, e) {
+        if (e.currentTarget.value.includes(",")) {
+            e.currentTarget.value = e.currentTarget.value.replace(/,/g, "");
+        };
         const { input } = this.state;
-        input.splice(index, 1, e.target.value)
+        input.splice(index, 1, e.target.value);
         this.setState({
             input: [...input]
-        })
-    }
+        });
+    };
+
+//EXCLUDE COMMAS FROM USER INPUT
+    handleKeyDown = e => {
+        if (e.key === ",") {
+            e.preventDefault();
+        };
+    };
 
 //DELETE EXERCISE - PASSED DOWN TO EACH EXERCISE CONTAINER COMPONENT
     deleteExercise = (index) => {
@@ -133,7 +143,7 @@ export default class NewWorkout extends Component {
             chosenExercises: newList,
             input: newInput
         })
-    }
+    };
 
 
     render() {
@@ -147,7 +157,7 @@ export default class NewWorkout extends Component {
         const filteredList = sortedList.filter(i => {
             return (
                 i.toLowerCase().indexOf(searchValue) !== -1
-            )
+            );
         });
 
         let dateButtonText
@@ -162,7 +172,7 @@ export default class NewWorkout extends Component {
             addExerciseButtonText = "Add Exercise"
         } else {
             addExerciseButtonText = "Close Exercise List"
-        }
+        };
     
         return (
             <div className="new-workout-container">
@@ -235,6 +245,7 @@ export default class NewWorkout extends Component {
                                             name="input"
                                             id={index}
                                             value={input[index]}
+                                            onKeyDown={this.handleKeyDown}
                                             onChange={e => this.updateInput(index, e)}
                                             required
                                         />
@@ -250,6 +261,7 @@ export default class NewWorkout extends Component {
                         <button
                             type="submit"
                             className="end-and-save-button"
+                            disabled={chosenExercises !== []}
                         >
                             End and Save Routine
                         </button>

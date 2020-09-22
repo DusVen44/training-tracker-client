@@ -9,7 +9,7 @@ export default class Notebook extends Component {
             user_id: TokenService.getUserId(),
             username: TokenService.getUsername()
         }
-    }
+    };
 
     render() {
         const { user_id, username } = this.state;
@@ -21,7 +21,9 @@ export default class Notebook extends Component {
                 <div className="notebook-links">
                     <a href="/new-workout/new"><h3 className="h3-link">Create New Routine</h3></a>
 
-                    <a href={`/history/${user_id}`}><h3 className="h3-link">View Past Workouts</h3></a>
+                    <a href={`/${user_id}/history`}><h3 className="h3-link">View Past Workouts</h3></a>
+
+                    {/* <a href={`/${user_id}/program-list`}><h3 className="h3-link">View Program List</h3></a> */}
                 </div>
 
             </div>

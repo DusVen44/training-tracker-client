@@ -1,9 +1,9 @@
 import React from 'react';
 import './Landing.css';
 import { Link } from 'react-router-dom';
-import sampleRoutine from '../../images/sample-routine.png';
-import exerciseList from '../../images/exercise-list.png';
-import historySample from '../../images/history-sample.png';
+import sampleRoutine from '../../images/sample-routine.jpg';
+import exerciseList from '../../images/exercise-list.jpg';
+import historySample from '../../images/history-sample.jpg';
 
 
 export default function Landing() {
@@ -28,9 +28,9 @@ export default function Landing() {
                     <br></br>
                     Password: TestTest2020
                 </p>
-                <img src={exerciseList} alt="notebook" className="list-image" />
-                <img src={sampleRoutine} alt="open notebook" className="routine-image" />
-                <img src={historySample} alt="open notebook" className="history-image" />
+                <img src={exerciseList} alt="notebook" className="list-image screenshot" />
+                <img src={sampleRoutine} alt="open notebook" className="routine-image screenshot" />
+                <img src={historySample} alt="open notebook" className="history-image screenshot" />
             </div>
 
             <div className="buttons">

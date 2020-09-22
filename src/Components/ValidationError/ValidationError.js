@@ -9,8 +9,8 @@ export default function ValidationError(props) {
                 {props.message}                
             </div>
         );
-} return <></>
-}
+    } return <></>
+    }
 
 ValidationError.propTypes = {
     message: PropTypes.string

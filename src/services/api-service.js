@@ -17,4 +17,4 @@ const apiService = {
             alert('Could not connect to Exercise List', error)
         })        
     }
-}
+};
