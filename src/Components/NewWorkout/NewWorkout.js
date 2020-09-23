@@ -16,7 +16,7 @@ export default class NewWorkout extends Component {
             showExerciseList: false,
             searchValue: "",
             chosenExercises: [],
-            input: []
+            input: [],
         }
     };
 
@@ -111,7 +111,8 @@ export default class NewWorkout extends Component {
 //ADD EXERCISE TO WORKOUT ROUTINE
     addExercise = (exercise) => {
         this.setState({
-            chosenExercises: [...this.state.chosenExercises, exercise]
+            chosenExercises: [...this.state.chosenExercises, exercise],
+            disabled: false
         });
     };
 
@@ -147,7 +148,7 @@ export default class NewWorkout extends Component {
 
 
     render() {
-        const { exercises, date, chosenExercises, input } = this.state;
+        const { exercises, date, chosenExercises, input, disabled } = this.state;
         const searchValue = this.state.searchValue.toLowerCase();
         const list = exercises.map(i => {
             return i.exercise_name
@@ -261,7 +262,7 @@ export default class NewWorkout extends Component {
                         <button
                             type="submit"
                             className="end-and-save-button"
-                            disabled={chosenExercises !== []}
+                            disabled={!chosenExercises.length}
                         >
                             End and Save Routine
                         </button>
