@@ -72,7 +72,10 @@ export default class Login extends Component {
             <div className="login-container">
 
                 <div className="instructions">
-                    Fill in the form below to log in to your account.
+                    <p>Fill in the form below to log in to your account.</p> 
+                    <p>Use these credentials to test the application...</p> 
+                    <p>Username:  TestTest1</p> 
+                    <p>Password:  TestTest2020</p>
                 </div>
 
             {/* Login Form */}

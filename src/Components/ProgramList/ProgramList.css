@@ -1,0 +1,57 @@
+.program-list-container {
+    text-align: center;
+    height: 70vh;
+}
+
+.program-list-header {
+    margin-bottom: 50px;
+    font-size: 35px;
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+}
+
+.label-program-name {
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.list-box {
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(207, 207, 207);
+    border-radius: 15%;
+    box-shadow: 0 0 20px 20px rgb(207, 207, 207);
+}
+
+.add-submit-button {
+    margin-bottom: 20px;
+}
+
+.each-program-box {
+    border: 2px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.folder-name {
+    font-size: 22px;
+    font-weight: bold;
+    background: whitesmoke;
+    color: rgb(0, 12, 83);
+    border: 2px solid #F79E02;
+    padding: 5px;
+}
+
+.delete-program-button {
+    background: rgb(175, 0, 0);
+    color: whitesmoke;
+    width: 40%;
+    height: 3vh;
+    padding: 0;
+    font-size: 16px;
+}

@@ -2,6 +2,11 @@
     padding-top: 30px;
 }
 
+.instructions {
+    font-family: 'Roboto';
+    font-size: 16px;
+}
+
 .login-form {
     background-color: rgb(207, 207, 207);
     border-radius: 15%;
@@ -30,4 +35,11 @@ input {
     background-color: #6CDAEE;
     color: #F79E02;
     text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+}
+
+@media screen and (min-width: 1000px) {
+    .instructions {
+        font-size: 22px;
+        font-weight: bold;
+    }
 }

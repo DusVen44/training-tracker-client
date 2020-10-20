@@ -1,0 +1,11 @@
+.program-routines-container {
+    text-align: center;
+    height: 70vh;
+}
+
+.program-routines-header {
+    margin-bottom: 50px;
+    font-size: 35px;
+    color: #F79E02;
+    text-shadow: -1px -1px 3px rgb(0, 12, 83), 1px -1px 3px rgb(0, 12, 83), -1px 1px 3px rgb(0, 12, 83), 1px 1px 3px rgb(0, 12, 83);
+}
